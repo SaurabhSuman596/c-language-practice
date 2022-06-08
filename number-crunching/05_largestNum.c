@@ -5,13 +5,14 @@
 int main()
 {
     int noEle;
-    int allNo[noEle];
+
     printf("Programe to find the largest number \n");
     printf("Enter the no of element you want to enter : ");
-    scanf("%d", noEle);
+    scanf("%d", &noEle);
+    int allNo[noEle];
     for (int i = 0; i < noEle; i++)
     {
-        printf("Enter %dst no : ");
+        printf("Enter %d no : ", i + 1);
         int temp;
         scanf("%d", &temp);
         allNo[i] = temp;
@@ -19,13 +20,18 @@ int main()
 
     for (int i = 0; i < noEle; i++)
     {
-        for (int j = 1; j < noEle; j++)
+        for (int j = 0; j < noEle; j++)
         {
             if (allNo[i] < allNo[j])
             {
-                int temp = allNo[i];
-                allNo[i] = allNo[j];
-                allNo[j] = allNo[i];
+                break;
+            }
+            else if (allNo[i] >= allNo[j])
+            {
+                if (j == noEle - 1)
+                {
+                    printf("%d", allNo[i]);
+                }
             }
         }
     }
